@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body.cover-image {
+    /* background-image: url("../images/posters1.jpg"); */
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+body.black {
+    background-color: #F0F0F0;
+}
+body.dark-grey {
+    background-color: #383838;
+}
+.color-dark-dark-grey {
+    color: #383838;
+}
+.color-lt-grey {
+	color: #F0F0F0;
+}
+.color-grey {
+	color: #686868;
+}
+.color-med-grey {
+	color: #484848;
+}
+h1 {
+    color: #f44336;
+}
+.white-text {
+    color: white;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    max-width: 1080px; 
+    margin-bottom: 40px;
+    width: 50%;
+  }
+
+
