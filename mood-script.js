@@ -87,18 +87,9 @@ const genres = [
 
 const main = document.getElementById('main');
 const form =  document.getElementById('form');
-const search = document.getElementById('search');
 const tagsEl = document.getElementById('tags');
 
-const prev = document.getElementById('prev')
-const next = document.getElementById('next')
-const current = document.getElementById('current')
 
-var currentPage = 1;
-var nextPage = 2;
-var prevPage = 3;
-var lastUrl = '';
-var totalPages = 100;
 
 var selectedGenre = []
 setGenre();
@@ -175,24 +166,6 @@ function getMovies(url) {
         console.log(data.results)
         if(data.results.length !== 0){
             showMovies(data.results);
-            currentPage = data.page;
-            nextPage = currentPage + 1;
-            prevPage = currentPage - 1;
-            totalPages = data.total_pages;
-
-            current.innerText = currentPage;
-
-            if(currentPage <= 1){
-              prev.classList.add('disabled');
-              next.classList.remove('disabled')
-            }else if(currentPage>= totalPages){
-              prev.classList.remove('disabled');
-              next.classList.add('disabled')
-            }else{
-              prev.classList.remove('disabled');
-              next.classList.remove('disabled')
-            }
-
             tagsEl.scrollIntoView({behavior : 'smooth'})
 
         }else{
@@ -206,89 +179,17 @@ function getMovies(url) {
 
 function showMovies(data) {
     main.innerHTML = '';
-
     data.forEach(movie => {
         const {title, poster_path, id} = movie;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = `
-             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}">
-            <div class="movie-info">
-                <h3>${title}</h3>
-            </div>
-        `
+             <img src="${poster_path? IMG_URL+poster_path: "http://via.placeholder.com/1080x1580" }" alt="${title}"> <br/>`
 
-        main.appendChild(movieEl);
+        main.appendChild(movieEl); 
 
-        document.getElementById(id).addEventListener('click', () => {
-          console.log(id)
-        })
+
     })
 }
 
 
-const leftArrow = document.getElementById('left-arrow')
-const rightArrow = document.getElementById('right-arrow')
-
-leftArrow.addEventListener('click', () => {
-  if(activeSlide > 0){
-    activeSlide--;
-  }else{
-    activeSlide = totalVideos -1;
-  }
-
-  showVideos()
-})
-
-rightArrow.addEventListener('click', () => {
-  if(activeSlide < (totalVideos -1)){
-    activeSlide++;
-  }else{
-    activeSlide = 0;
-  }
-  showVideos()
-})
-
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const searchTerm = search.value;
-    selectedGenre=[];
-    setGenre();
-    if(searchTerm) {
-        getMovies(searchURL+'&query='+searchTerm)
-    }else{
-        getMovies(API_URL);
-    }
-
-})
-
-prev.addEventListener('click', () => {
-  if(prevPage > 0){
-    pageCall(prevPage);
-  }
-})
-
-next.addEventListener('click', () => {
-  if(nextPage <= totalPages){
-    pageCall(nextPage);
-  }
-})
-
-function pageCall(page){
-  let urlSplit = lastUrl.split('?');
-  let queryParams = urlSplit[1].split('&');
-  let key = queryParams[queryParams.length -1].split('=');
-  if(key[0] != 'page'){
-    let url = lastUrl + '&page='+page
-    getMovies(url);
-  }else{
-    key[1] = page.toString();
-    let a = key.join('=');
-    queryParams[queryParams.length -1] = a;
-    let b = queryParams.join('&');
-    let url = urlSplit[0] +'?'+ b
-    getMovies(url);
-  }
-}

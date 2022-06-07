@@ -151,42 +151,7 @@ h3 {
     margin: 10px;
     transition-duration: 0.3s;
 }
-.movie-recommendation-button.movie-one {
-    background-image: url("./images/big-night/big-night.jpeg")
-}
-.movie-recommendation-button.movie-one:hover {
-    background-image: url("./images/big-night/Big-Night1.jpeg");
-}
-.movie-recommendation-button.movie-two {
-    background-image: url("./images/blaze/a6d3e91b5bfb4f57a6359d529b15ee37-blaze3.jpeg")
-}
-.movie-recommendation-button.movie-two:hover {
-    background-image: url("./images/blaze/blaze-sundance.webp");
-}
-.movie-recommendation-button.movie-three {
-    background-image: url("./images/bright-star/AAAABe5YTu_EWaFbq4arVKbaesz0GRwM2x760Ct2nJOk-9whSTlzHuadAUMKfeFOAsXnZ1g64whY_abTl3UL0n9OIJEJtX7INnzaIJ9a.jpeg")
-}
-.movie-recommendation-button.movie-three:hover {
-    background-image: url("./images/bright-star/abbie-cornish-ben-whishaw-bright-star-2009-EFAC5W.jpeg");
-}
-.movie-recommendation-button.movie-four {
-    background-image: url("./images/i-am-love/640x360.jpeg")
-}
-.movie-recommendation-button.movie-four:hover {
-    background-image: url("./images/i-am-love/MG_4135.webp");
-}
-.movie-recommendation-button.movie-five {
-    background-image: url("./images/cold-war/cold-war-zula-wiktor.jpeg")
-}
-.movie-recommendation-button.movie-five:hover {
-    background-image: url("./images/cold-war/Cold_War_3.jpeg");
-}
-.movie-recommendation-button.movie-six {
-    background-image: url("./images/i-am-jonas/Hollywood-Insider-I-Am-Jonas-Movie-LGBTQ-Films-French-Films-Gay-Romance-1280x720.jpeg")
-}
-.movie-recommendation-button.movie-six:hover {
-    background-image: url("./images/i-am-jonas/i-am-jonas-netflix-review.webp");
-}
+
 
 .movie-selection-box {
     background-color: rgb(0, 0, 0);
